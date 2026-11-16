@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Page</title>
+    <script type="module" src="app.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8faf9;
+            color: #414b42;
+        }
+
+        /* ==========================
+        LAYOUT CONFIGURATION
+        ========================== */
+
+        :root {
+            --sidebar-width: 280px;
+            --navbar-height: 80px;
+        }
+
+        /* ==========================
+        MAIN WRAPPER
+        ========================== */
+
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            width: calc(100% - var(--sidebar-width));
+            min-height: 100vh;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+
+            box-sizing: border-box;
+        }
+
+        /* ==========================
+        TOP NAVBAR
+        ========================== */
+
+        .top-navbar {
+            width: 100%;
+            min-height: var(--navbar-height);
+            flex-shrink: 0;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: #ffffff;
+        }
+
+        /* ==========================
+        MAIN CONTENT
+        ========================== */
+
+        .content-area {
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+
+            padding: 28px 32px;
+
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+        }
+        /* ==========================
+        TABLET & MOBILE
+        ========================== */
+
+        @media (max-width: 767px) {
+
+            .main-wrapper {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .content-area {
+                padding: 20px 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <sidebar-custom></sidebar-custom>
+    <div class="main-wrapper">
+        <top-navbar></top-navbar>
+        <main id="content-area" class="content-area"></main>
+    </div>
+</body>
+</html>
